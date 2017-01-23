@@ -1,0 +1,51 @@
+#wcuf_alert_popup
+{
+	background: #fff none repeat scroll 0 0;
+    margin: 40px auto;
+    max-width: 700px;
+    padding: 20px 30px;
+    position: relative;
+    text-align: center;
+}
+#wcuf_close_popup_alert, #wcuf_leave_page
+{
+	margin-top: 20px;
+	/* padding: 3px 15px 3px 15px; */
+}
+#wcuf_alert_popup_title 
+ {
+  text-align: left;
+  border-bottom: 1px solid #dedede;
+  padding-bottom: 3px;
+}
+.wcuf_quantity_per_file_container
+{
+	display: block;
+	clear:both;
+    margin: 3px 0 30px;
+}
+.wcuf_quantity_per_file_input
+{
+	width: 60px; 
+	margin-left: 5px;
+	text-align: center;
+	border:none;
+	background-color: #eeeeee;
+}
+.wcuf_single_file_name_container
+{
+	display:block;
+	clear:both;
+	margin-top: 5px;
+}
+.wcuf_delete_single_file_in_multiple_list.wcuf_delete_file_icon
+{
+	background:url('../img/delete-icon-resized.png');
+	height:16px;
+	width: 16px;
+	display: inline-block;
+	margin-left: 20px;
+	cursor: pointer;
+	display:inline-block; 
+	vertical-align:middle
+}

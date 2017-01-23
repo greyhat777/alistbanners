@@ -1,0 +1,76 @@
+/*alert(jQuery.browser.msie == "undefined");
+alert(wcuf_is_edge());  */
+function wcuf_upload_form_setup()
+{
+	//if(wcuf_check_version() != 12 && wcuf_check_version() > 9) //12 Edge; -1 for other browsers
+	if(!wcuf_is_edge() && ( (typeof jQuery.browser.msie == "undefined") && /rv:11.0/i.test(navigator.userAgent) == false /*|| (parseInt(jQuery.browser.version) > 9 && parseInt(jQuery.browser.version) != 12)*/)  ) //12 Edge; -1 for other browsers
+	{
+		var wcuf_bar = jQuery('.wcuf_bar');
+		var wcas_percent = jQuery('.wcuf_percent');
+		var wcas_status = jQuery('#wcuf_status');
+
+		
+		jQuery('#wcuf_form').ajaxForm({
+			beforeSend: function() {
+				wcas_status.empty();
+				var wcas_percentVal = '0%';
+				wcuf_bar.width(wcas_percentVal);
+				wcas_percent.html(wcas_percentVal);				
+				jQuery("#wcuf_form").fadeOut(200);
+				jQuery("#wcuf_progress").delay(200).fadeIn(200);
+			},
+			/* beforeSubmit: function(arr, $form, options)
+			{
+				jQuery("#wcuf_progress").fadeIn(500);
+			} ,*/
+			uploadProgress: function(event, position, total, wcas_percentComplete) {
+				var wcas_percentVal = wcas_percentComplete + '%';
+				wcuf_bar.width(wcas_percentVal);
+				wcas_percent.html(wcas_percentVal);
+			}, 
+			complete: function(xhr) {
+				//wcas_status.html(xhr.responseText);
+				location.reload()
+				//setTimeout(function(){ location.reload(); }, 500);
+			}
+		});
+	}
+	else
+	{
+		jQuery('#wcuf_upload_message').html(ie_mex);
+		jQuery('.wcuf_percent').html("");
+		jQuery("#wcuf_form").submit( function(event )
+		{
+			jQuery("#wcuf_form, .wcuf_bar").fadeOut(200);
+			jQuery("#wcuf_progress, #wcuf_infinite_bar").delay(200).fadeIn(200);
+		});
+	}
+}
+function wcuf_is_edge()
+{
+	return /Edge\/\d+/i.test(navigator.userAgent);
+}
+function wcuf_check_version()
+{
+	var rv = 9999;
+	if (/MSIE 10/i.test(navigator.userAgent)) {
+	   // this is internet explorer 10
+	   rv = 10;
+	}
+	
+	if(/rv:11.0/i.test(navigator.userAgent))
+	{
+		 rv = 11;
+	}
+
+	if(/MSIE 9/i.test(navigator.userAgent)){
+		// this is internet explorer 9 and 11
+		rv = 9;
+	}
+
+	if (/Edge\/12./i.test(navigator.userAgent)){
+	   // this is Microsoft Edge
+	   rv = 12;
+	} 
+	return rv;	
+}

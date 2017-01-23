@@ -1,0 +1,330 @@
+<style>
+.spacer
+{
+	display:block; height:10px;
+}
+.spacer2
+{
+	display:block; height:25px;
+}
+.spacer3
+{
+	display:block; height:50px;
+}
+</style>
+<!--<h2 id="upload-title"><?php _e('Upload files', 'woocommerce-files-upload'); ?></h2> -->
+<form method="post" action="" enctype="multipart/form-data" id="wcuf_form">
+<input type="hidden" value="yes" name="wcuf-uploading-data"></input>
+<?php 
+$render_upload_button = false;
+foreach($file_fields_groups as $file_fields):  
+	
+	global $sitepress;
+	$enable_for = isset($file_fields['enable_for']) ? $file_fields['enable_for']:'always';
+	$disable_stacking = isset($file_fields['disable_stacking']) ? (bool)$file_fields['disable_stacking']:false;
+	$disable_stacking_for_variation = isset($file_fields['disable_stacking_for_variation']) ? (bool)$file_fields['disable_stacking_for_variation']:false;
+	$display_on_order_detail = isset($file_fields['display_on_order_detail']) ? $file_fields['display_on_order_detail']:false;
+	$selected_categories = isset($file_fields['category_ids']) ? $file_fields['category_ids']:array();
+	$display_product_fullname = isset($file_fields['full_name_display']) ? $file_fields['full_name_display']:true; //Usefull only for variable products
+	$all_products_cats_ids = array();
+	$products_for_which_stacking_is_disabled = array();
+	$can_render = $enable_for == 'always' ? true:false;
+	
+	$selected_products = isset($file_fields['products_ids']) ? $file_fields['products_ids']:array();
+	$enable_upload_per_file = false;
+	
+	if($display_on_order_detail)
+	{
+		if(($enable_for === 'always' && $disable_stacking) || $enable_for !== 'always' && (count($selected_categories) > 0 || count($selected_products) > 0 ))
+		{
+			//for every product in the order, look for its categories and parent categories ids
+			//WCUF_AdminMenu::WCUF_switch_to_default_lang();
+			foreach($order->get_items() as $product)
+			{
+				//WPML
+				if($wcuf_wpml_helper->wpml_is_active())
+				{
+					$product['product_id'] = $wcuf_wpml_helper->get_main_language_id($product['product_id']);
+					$product['variation_id'] = $wcuf_wpml_helper->get_main_language_id($product['variation_id']);
+				}
+				//products
+				if(!empty($selected_products))
+				{
+					foreach($selected_products as $product_id)
+					{	
+						//wcuf_var_dump("current cart item: ".$product['product_id']." selected: ".$product_id.", enabled: ".$enable_for); 
+						if( ($product_id == $product['product_id'] && ($enable_for === 'categories' || $enable_for === 'categories_children'))
+							|| ($product_id != $product['product_id'] && ($enable_for === 'disable_categories' || $enable_for === 'disable_categories_children')) )
+							{
+								$enable_upload_per_file = true;
+								$can_render = true;
+								//In case of variable
+								if(!wcuf_product_is_in_array($product, $products_for_which_stacking_is_disabled, $disable_stacking_for_variation))
+									$products_for_which_stacking_is_disabled[] = $product;
+							}
+						
+					}
+				}
+				else if($enable_for === 'always' && $disable_stacking)
+				{
+					$enable_upload_per_file = true;
+					$can_render = true;
+					//In case of variable
+					if(!wcuf_product_is_in_array($product, $products_for_which_stacking_is_disabled, $disable_stacking_for_variation))
+						$products_for_which_stacking_is_disabled[] = $product;
+				}
+				if(!$disable_stacking_for_variation)
+						$product['variation_id'] = 0;
+					
+				//product categories
+				$product_cats = wp_get_post_terms( $product["product_id"], 'product_cat' );
+				$current_product_categories_ids = array();
+				foreach($product_cats as $category)
+				{
+					$category_id = $category->term_id;
+					
+					if(!$disable_stacking)
+						array_push($all_products_cats_ids, (string)$category_id);
+					else
+						array_push($current_product_categories_ids, (string)$category_id);
+					
+					//parent categories
+					if($enable_for == "categories_children" || $enable_for == "disable_categories_children")
+					{
+						$parents =  get_ancestors( $category->term_id, 'product_cat' ); 
+						foreach($parents as $parent_id)
+						{
+							$temp_category = $parent_id;
+							if(!$disable_stacking)
+								array_push($all_products_cats_ids, (string)$temp_category);
+							else
+								array_push($current_product_categories_ids, (string)$category_id);
+						}
+					}
+				}
+				//Can enable upload for this product? (if stacking uploads are disabled)
+				if($disable_stacking && count($selected_categories) > 0)
+				{
+					if($enable_for === 'categories' || $enable_for === 'categories_children')
+					{
+						if(array_intersect($selected_categories, $current_product_categories_ids))
+						{
+							//if(!in_array($product, $products_for_which_stacking_is_disabled))
+							if(!wcuf_product_is_in_array($product, $products_for_which_stacking_is_disabled, $disable_stacking_for_variation))
+								array_push($products_for_which_stacking_is_disabled, $product);
+							$can_render = true;
+						}
+					}
+					else
+					{
+						if(!array_intersect($selected_categories, $current_product_categories_ids))
+						{
+							//if(!in_array($product, $products_for_which_stacking_is_disabled))
+							if(!wcuf_product_is_in_array($product, $products_for_which_stacking_is_disabled, $disable_stacking_for_variation))
+								array_push($products_for_which_stacking_is_disabled, $product);
+							$can_render = true;
+						}
+					}	
+				}
+			} //ends product foreach
+			//WCUF_AdminMenu::WCUF_restore_current_lang();
+			//Cumulative ORDER catagories. If exists at least one product with an "enabled"/"disabled" category, upload field can be rendered
+			if(!$disable_stacking && count($selected_categories) > 0)
+				if($enable_for === 'categories' || $enable_for === 'categories_children')
+				{  
+					if(array_intersect($selected_categories, $all_products_cats_ids))
+						$can_render = true;
+				}
+				else
+				{ 
+					if(!array_intersect($selected_categories, $all_products_cats_ids))
+						$can_render = true;
+				}	
+		}
+		if($can_render):
+			if(!$disable_stacking && !$enable_upload_per_file):
+			?>
+			<h4 style="margin-bottom:5px; margin-top:15px;" class="wcuf_upload_field_title"><?php  echo $file_fields['title'] ?></h4>
+			<p><?php echo $file_fields['description'] ?></p>
+			<?php if(!isset($file_order_metadata[$file_fields['id']])): ?>
+					<input type="hidden" name="wcuf[<?php echo $file_fields['id']; ?>][title]" value="<?php echo $file_fields['title']; ?>"></input>
+					<input type="hidden" name="wcuf[<?php echo $file_fields['id']; ?>][id]" value="<?php echo $file_fields['id']; ?>"></input>
+					<input type="file" data-max-files="<?php echo $file_fields['multiple_uploads_max_files']; ?>" <?php if($file_fields['enable_multiple_uploads_per_field'])  echo 'multiple="multiple"'; ?> class="wcuf_file_input <?php if($file_fields['enable_multiple_uploads_per_field']) echo 'wcuf_file_input_multiple' ?>" id="wcuf_upload_field_<?php echo $file_fields['id']; ?>" data-id="<?php echo $file_fields['id']; ?>" name="wcufuploadedfile_<?php echo $file_fields['id']?>" <?php if($file_fields['types'] != '') echo 'accept="'.$file_fields['types'].'"';?> data-size="<?php echo $file_fields['size']*1048576; ?>" value="<?php echo $file_fields['size']*1048576; ?>"></input>
+					<strong class="wcuf_max_size_notice" id="wcuf_max_size_notice_<?php echo $file_fields['id']; ?>">(<?php echo __('Max size: ', 'woocommerce-files-upload').$file_fields['size']; ?>MB)</strong>
+					<div class="spacer2"></div>
+			<?php   $render_upload_button = true;
+				else: ?>
+						<p><?php 
+							if(!isset($file_fields['message_already_uploaded']))
+								_e('File already uploaded.', 'woocommerce-files-upload'); 
+							else
+								echo $file_fields['message_already_uploaded'];
+							?></p>
+					 <?php if($file_fields['user_can_delete']):?>
+							<button class="button delete_button" data-id="<?php echo $file_fields['id'];?>"><?php  _e('Delete file', 'woocommerce-files-upload'); ?></button>
+							<div class="spacer2"></div>
+					<?php endif; ?>
+		<?php endif;
+		  else://else disable stacking 
+		   foreach($products_for_which_stacking_is_disabled as $product):
+				//var_dump($product);
+				$product_id = $product["item_meta"]['_product_id'][0];
+				$product_name = $product['name'];
+				$product_var_id = $product["item_meta"]['_variation_id'][0]==""? false:$product["item_meta"]['_variation_id'][0];
+				$product_variation = null;
+				
+				if($product_var_id && $disable_stacking_for_variation)	
+				{
+					$product_in_order = apply_filters( 'woocommerce_order_item_product', $order->get_product_from_item( $product ), $product );
+					$variation = new WC_Product_Variation($product_var_id);
+					$item_meta    = new WC_Order_Item_Meta( $product['item_meta'], $product_in_order );
+					$product_id .= "-".$product_var_id;
+					
+					if($display_product_fullname)
+						$product_name = $variation->get_title()." - ";	
+					$attributes_counter = 0;
+					foreach($variation->get_variation_attributes( ) as $attribute_name => $value){
+						
+						if($attributes_counter > 0 && $display_product_fullname)
+							$product_name .= ", ";
+						$meta_key = urldecode( str_replace( 'attribute_', '', $attribute_name ) ); 
+						
+						if($display_product_fullname)
+							$product_name .= " ".wc_attribute_label( $meta_key, $product_in_order ).": ".$value;
+							//$product_name .= wc_get_order_item_meta( $product_var_id, $attribute_name, array( 'fields' => 'names' )).": ".$value;
+						$attributes_counter++;
+					} 
+					
+					//$product_name = $variation->get_title()." ".implode( ', ', $variation->get_variation_attributes( ) );//$variation->get_formatted_name();
+					
+				}
+				/* echo "******************************************</br>";
+				var_dump($product_variation->get_attributes());
+				echo "<br/>****************************************** end<br/><br/>"; */
+			  ?>
+			  <h4 style="margin-bottom:5px; margin-top:15px;" class="wcuf_upload_field_title"><?php  echo $file_fields['title'].' ('.$product_name.')'?></h4>
+				<p><?php echo $file_fields['description'] ?></p>
+				<?php if(!isset($file_order_metadata[$file_fields['id']."-".$product_id])): ?>
+						<input type="hidden" name="wcuf[<?php echo $file_fields['id']."-".$product_id; ?>][title]" value="<?php echo $file_fields['title'].' ('.$product_name.')'; ?>"></input>
+						<input type="hidden" name="wcuf[<?php echo $file_fields['id']."-".$product_id; ?>][id]" value="<?php echo $file_fields['id']."-".$product_id; ?>"></input>
+						<input type="file" data-max-files="<?php echo $file_fields['multiple_uploads_max_files']; ?>" <?php if($file_fields['enable_multiple_uploads_per_field'])  echo 'multiple="multiple"'; ?> class="wcuf_file_input <?php if($file_fields['enable_multiple_uploads_per_field']) echo 'wcuf_file_input_multiple' ?>" id="wcuf_upload_field_<?php echo $file_fields['id']."-".$product_id; ?>" data-id="<?php echo $file_fields['id']."-".$product_id; ?>" name="wcufuploadedfile_<?php echo $file_fields['id']."-".$product_id?>" <?php if($file_fields['types'] != '') echo 'accept="'.$file_fields['types'].'"';?> data-size="<?php echo $file_fields['size']*1048576; ?>" value="<?php echo $file_fields['size']*1048576; ?>"></input>
+						<strong class="wcuf_max_size_notice" id="wcuf_max_size_notice_<?php echo $file_fields['id']."-".$product_id; ?>">(<?php echo __('Max size: ', 'woocommerce-files-upload').$file_fields['size']; ?>MB)</strong>
+						<div class="spacer2"></div>
+				<?php   $render_upload_button = true;
+					else: ?>
+							<p><?php 
+							if(!isset($file_fields['message_already_uploaded']))
+								_e('File already uploaded.', 'woocommerce-files-upload'); 
+							else
+								echo $file_fields['message_already_uploaded'];
+							?></p>
+						 <?php if($file_fields['user_can_delete']):?>
+								<button class="button delete_button" data-id="<?php echo $file_fields['id']."-".$product_id;?>"><?php  _e('Delete file', 'woocommerce-files-upload'); ?></button>
+								<div class="spacer2"></div>
+						<?php endif; ?>
+				<?php endif;		 
+			endforeach;//products
+		endif;//disable stacking
+	endif;//can render
+	}
+	endforeach; //upload fields
+	
+	if($render_upload_button): ?> 
+		<div class="spacer"></div>
+		<input name="upload_button" id="upload_button" type="submit" class="button" value="<?php _e('Upload file(s)', 'woocommerce-files-upload'); ?>"></input>
+		<div class="spacer"></div>
+	<?php else: ?>
+		<style>
+		#upload-title
+		{
+			display:none;
+		}
+		</style>
+	<?php endif; ?>
+</form> 
+
+
+<div id="wcuf_deleting_message">
+	<h4><?php _e('Deleting file, please wait...', 'woocommerce-files-upload'); ?></h4>
+</div>
+
+<div id="wcuf_progress">
+	<h4 id="wcuf_upload_message"><?php _e('Upload progress. Wait until the progress bar completely disappears.', 'woocommerce-files-upload'); ?></h4>
+    <div class="wcuf_bar"></div >
+    <div id="wcuf_infinite_bar" style="background-image: url('<?php echo wcuf_PLUGIN_PATH;?>/img/loader.gif');"></div >
+    <div class="wcuf_percent">0%</div>
+	<div id="wcuf_status"></div>
+</div>
+
+<div class="spacer3"></div>
+
+<script> 
+/* var ie_mex = "<?php _e('Upload progress. Please wait...', 'woocommerce-files-upload'); ?>";
+jQuery(document).ready(function()
+{
+	wcuf_upload_form_setup();
+	
+	jQuery('.delete_button').on('click',function(event)
+	{
+		jQuery("#wcuf_form").fadeOut(200);
+		jQuery("#wcuf_deleting_message").delay(200).fadeIn(200);
+		event.preventDefault();
+		event.stopImmediatePropagation();
+		jQuery.post( window.location.href , { type: "wcup_delete", id: jQuery(this).data('id') } ).done( function(){ window.location.href = window.location.href;});
+	});
+	
+	jQuery('#upload_button').click( function(event) 
+	{
+		//check whether browser fully supports all File API
+		if (window.File && window.FileReader && window.FileList && window.Blob)
+		{
+			jQuery('.wcuf_file_input').each(function(index, object)
+			{
+				//get the file size and file type from file input field
+				//if(jQuery(this)[0].files[0] != undefined)
+				for(var i = 0; i<jQuery(this)[0].files.length; i++)
+				{
+					if(jQuery(this)[0].files[i] != undefined)
+					{
+						var fsize = jQuery(this)[0].files[i].size;
+						var ftype = jQuery(this)[0].files[i].type;
+						var fname = jQuery(this)[0].files[i].name;
+						var extension =  jQuery(this).val().replace(/^.*\./, '');
+						var extension_accepted = jQuery(this).attr('accept');
+						
+					
+						if( fsize>jQuery(this).data('size') ||
+						  (extension_accepted != undefined && extension_accepted.indexOf(extension) == -1) ) //do something if file size more than 1 mb (1048576)
+						{
+							var size = fsize/1048576;
+							size = size.toFixed(2);
+							alert("File: "+fname+" (<?php _e('size:', 'woocommerce-files-upload'); ?> "+size+" MB) <?php _e('too big or File Type not allowed', 'woocommerce-files-upload'); ?>!");
+							event.preventDefault();
+							event.stopImmediatePropagation();
+							return false;
+						}
+					}
+				}
+			});
+		}else{
+			alert("<?php _e('Please upgrade your browser, because your current browser lacks some new features we need!', 'woocommerce-files-upload'); ?>");
+		}
+	});
+}); */
+</script>
+<script> 
+var wcuf_order_id = "<?php echo $order_id; ?>";
+var wcuf_ajax_action = "upload_file_on_order_detail_page";
+var wcuf_ajax_delete_action = "delete_file_on_order_detail_page"
+var wcuf_is_deleting = false;
+var wcuf_unload_confirm_message = "<?php _e('You have to upload some files before leaving the page', 'woocommerce-files-upload'); ?>";
+var wcuf_unload_check = false;
+var wcuf_file_size_error = "<?php  _e(' is too big or File Type not allowed. Max allowed size: ', 'woocommerce-files-upload'); ?>";
+var wcuf_ajaxurl = '<?php echo admin_url('admin-ajax.php'); ?>';
+var wcuf_success_msg = '<?php  _e('Done! ', 'woocommerce-files-upload'); ?>';
+var wcuf_loading_msg = '<?php  _e('Loading, please wait until uploading is complete... ', 'woocommerce-files-upload'); ?>';
+var wcuf_failure_msg = '<?php  _e('An error has occurred.', 'woocommerce-files-upload'); ?>';
+var wcuf_delete_file_msg = '<?php  _e('Delete file', 'woocommerce-files-upload'); ?>';
+var wcuf_html5_error = "<?php _e('The HTML5 standards are not fully supported in this browser, please upgrade it or use a more moder browser like Google Chrome or FireFox.', 'woocommerce-files-upload'); ?>";
+
+</script>

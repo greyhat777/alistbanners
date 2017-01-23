@@ -1,0 +1,155 @@
+# Copyright (C) 2016 More Sorting for WooCommerce
+# This file is distributed under the same license as the More Sorting for WooCommerce package.
+msgid ""
+msgstr ""
+"Project-Id-Version: More Sorting for WooCommerce 2.1.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/woocommerce-more-"
+"sorting\n"
+"POT-Creation-Date: 2016-12-12 19:00:43+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2016-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#: includes/admin/class-wc-more-sorting-settings-general.php:24
+msgid "General"
+msgstr ""
+
+#: includes/admin/class-wc-more-sorting-settings-general.php:26
+msgid ""
+"You will need <a href=\"%s\">More Sorting for WooCommerce Pro</a> plugin to "
+"change value."
+msgstr ""
+
+#: includes/admin/class-wc-more-sorting-settings-general.php:45
+msgid "More Sorting: Remove All Sorting"
+msgstr ""
+
+#: includes/admin/class-wc-more-sorting-settings-general.php:46
+msgid "Completely remove sorting from the shop front end"
+msgstr ""
+
+#: includes/admin/class-wc-more-sorting-settings-general.php:77
+msgid "More Sorting Options"
+msgstr ""
+
+#. #-#-#-#-#  plugin.pot (More Sorting for WooCommerce 2.1.0)  #-#-#-#-#
+#. Plugin Name of the plugin/theme
+#: includes/admin/class-wc-more-sorting-settings-general.php:83
+msgid "More Sorting for WooCommerce"
+msgstr ""
+
+#: includes/admin/class-wc-more-sorting-settings-general.php:84
+msgid "Enable"
+msgstr ""
+
+#: includes/admin/class-wc-more-sorting-settings-general.php:85
+msgid ""
+"Add more WooCommerce sorting options or remove all sorting including default."
+msgstr ""
+
+#: includes/admin/class-wc-more-sorting-settings-general.php:92
+msgid "Sort by Name"
+msgstr ""
+
+#: includes/admin/class-wc-more-sorting-settings-general.php:93
+#: includes/admin/class-wc-more-sorting-settings-general.php:103
+#: includes/admin/class-wc-more-sorting-settings-general.php:113
+#: includes/admin/class-wc-more-sorting-settings-general.php:123
+#: includes/admin/class-wc-more-sorting-settings-general.php:144
+#: includes/admin/class-wc-more-sorting-settings-general.php:154
+msgid "Default: "
+msgstr ""
+
+#: includes/admin/class-wc-more-sorting-settings-general.php:93
+#: includes/admin/class-wc-more-sorting-settings-general.php:96
+msgid "Sort by title: A to Z"
+msgstr ""
+
+#: includes/admin/class-wc-more-sorting-settings-general.php:94
+#: includes/admin/class-wc-more-sorting-settings-general.php:104
+#: includes/admin/class-wc-more-sorting-settings-general.php:114
+#: includes/admin/class-wc-more-sorting-settings-general.php:124
+#: includes/admin/class-wc-more-sorting-settings-general.php:145
+#: includes/admin/class-wc-more-sorting-settings-general.php:155
+msgid "Text to show on frontend. Leave blank to disable."
+msgstr ""
+
+#: includes/admin/class-wc-more-sorting-settings-general.php:103
+#: includes/admin/class-wc-more-sorting-settings-general.php:106
+msgid "Sort by title: Z to A"
+msgstr ""
+
+#: includes/admin/class-wc-more-sorting-settings-general.php:112
+msgid "Sort by SKU"
+msgstr ""
+
+#: includes/admin/class-wc-more-sorting-settings-general.php:113
+#: includes/admin/class-wc-more-sorting-settings-general.php:116
+msgid "Sort by SKU: low to high"
+msgstr ""
+
+#: includes/admin/class-wc-more-sorting-settings-general.php:123
+#: includes/admin/class-wc-more-sorting-settings-general.php:126
+msgid "Sort by SKU: high to low"
+msgstr ""
+
+#: includes/admin/class-wc-more-sorting-settings-general.php:133
+msgid "Sort SKUs as numbers instead of as texts"
+msgstr ""
+
+#: includes/admin/class-wc-more-sorting-settings-general.php:143
+msgid "Sort by stock quantity"
+msgstr ""
+
+#: includes/admin/class-wc-more-sorting-settings-general.php:144
+#: includes/admin/class-wc-more-sorting-settings-general.php:147
+msgid "Sort by stock quantity: low to high"
+msgstr ""
+
+#: includes/admin/class-wc-more-sorting-settings-general.php:154
+#: includes/admin/class-wc-more-sorting-settings-general.php:157
+msgid "Sort by stock quantity: high to low"
+msgstr ""
+
+#: includes/admin/class-wc-more-sorting-settings-general.php:168
+msgid "Remove Sorting"
+msgstr ""
+
+#: includes/admin/class-wc-more-sorting-settings-general.php:174
+msgid "Remove All Sorting (including WooCommerce default)"
+msgstr ""
+
+#: includes/admin/class-wc-more-sorting-settings-general.php:175
+msgid "Remove"
+msgstr ""
+
+#: includes/admin/class-wc-settings-more-sorting.php:22
+msgid "More Sorting"
+msgstr ""
+
+#: woocommerce-more-sorting.php:101
+msgid "Settings"
+msgstr ""
+
+#: woocommerce-more-sorting.php:102
+msgid "Unlock all"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "http://coder.fm/item/woocommerce-more-sorting-plugin"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Add more WooCommerce sorting options."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Algoritmika Ltd"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://www.algoritmika.com"
+msgstr ""

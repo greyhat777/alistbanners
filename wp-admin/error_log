@@ -1,0 +1,120 @@
+[15-Apr-2016 18:31:19 UTC] PHP Fatal error:  Cannot use object of type WP_Error as array in /home/butlerbranding/public_html/alist/wp-content/plugins/css-javascript-toolbox/framework/wordpress/feed.php on line 54
+[22-Apr-2016 17:20:36 UTC] PHP Fatal error:  Cannot use object of type WP_Error as array in /home/butlerbranding/public_html/alist/wp-content/plugins/css-javascript-toolbox/framework/wordpress/feed.php on line 54
+[05-May-2016 21:17:18 UTC] PHP Fatal error:  Cannot use object of type WP_Error as array in /home/butlerbranding/public_html/alist/wp-content/plugins/css-javascript-toolbox/framework/wordpress/feed.php on line 54
+[10-May-2016 21:31:39 UTC] PHP Fatal error:  Cannot use object of type WP_Error as array in /home/butlerbranding/public_html/alist/wp-content/plugins/css-javascript-toolbox/framework/wordpress/feed.php on line 54
+[11-May-2016 20:56:22 UTC] PHP Fatal error:  Cannot redeclare enfold_customization_header_widget_area() (previously declared in /home/butlerbranding/public_html/alist/wp-content/plugins/code-snippets/php/admin-menus/class-edit-menu.php(202) : eval()'d code:3) in /home/butlerbranding/public_html/alist/wp-content/plugins/code-snippets/php/admin-menus/class-edit-menu.php(202) : eval()'d code on line 8
+[31-May-2016 23:07:18 UTC] PHP Fatal error:  Cannot use object of type WP_Error as array in /home/butlerbranding/public_html/alist/wp-content/plugins/css-javascript-toolbox/framework/wordpress/feed.php on line 54
+[06-Jun-2016 22:48:45 UTC] PHP Fatal error:  Cannot use object of type WP_Error as array in /home/butlerbranding/public_html/alist/wp-content/plugins/css-javascript-toolbox/framework/wordpress/feed.php on line 54
+[06-Jun-2016 23:12:04 UTC] PHP Fatal error:  Cannot use object of type WP_Error as array in /home/butlerbranding/public_html/alist/wp-content/plugins/css-javascript-toolbox/framework/wordpress/feed.php on line 54
+[07-Jun-2016 17:13:43 UTC] PHP Fatal error:  Cannot use object of type WP_Error as array in /home/butlerbranding/public_html/alist/wp-content/plugins/css-javascript-toolbox/framework/wordpress/feed.php on line 54
+[08-Jun-2016 22:12:59 UTC] PHP Warning:  require_once(/home/butlerbranding/public_html/wp-content/plugins/woocommerce-shipping-ups/includes/class-wc-shipping-ups.php): failed to open stream: No such file or directory in /home/butlerbranding/public_html/alist/wp-content/themes/enfold/functions-enfold.php on line 1893
+[08-Jun-2016 22:12:59 UTC] PHP Fatal error:  require_once(): Failed opening required '/home/butlerbranding/public_html/wp-content/plugins/woocommerce-shipping-ups/includes/class-wc-shipping-ups.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/butlerbranding/public_html/alist/wp-content/themes/enfold/functions-enfold.php on line 1893
+[08-Jun-2016 22:14:30 UTC] PHP Warning:  require_once(/home/butlerbranding/public_html/wp-content/plugins/woocommerce-shipping-ups/includes/class-wc-shipping-ups.php): failed to open stream: No such file or directory in /home/butlerbranding/public_html/alist/wp-content/themes/enfold/functions-enfold.php on line 1893
+[08-Jun-2016 22:14:30 UTC] PHP Fatal error:  require_once(): Failed opening required '/home/butlerbranding/public_html/wp-content/plugins/woocommerce-shipping-ups/includes/class-wc-shipping-ups.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/butlerbranding/public_html/alist/wp-content/themes/enfold/functions-enfold.php on line 1893
+[23-Jun-2016 00:39:56 UTC] PHP Fatal error:  Cannot use object of type WC_Shipping_Rate as array in /home/butlerbranding/public_html/alist/wp-content/themes/enfold/functions-enfold.php on line 2104
+[23-Jun-2016 00:41:22 UTC] PHP Fatal error:  Cannot use object of type WC_Shipping_Rate as array in /home/butlerbranding/public_html/alist/wp-content/themes/enfold/functions-enfold.php on line 2077
+[24-Jun-2016 19:55:59 UTC] PHP Fatal error:  Cannot use object of type WC_Shipping_Rate as array in /home/butlerbranding/public_html/alist/wp-content/themes/enfold/functions-enfold.php on line 2108
+[24-Jun-2016 19:56:08 UTC] PHP Fatal error:  Cannot use object of type WC_Shipping_Rate as array in /home/butlerbranding/public_html/alist/wp-content/themes/enfold/functions-enfold.php on line 2108
+[24-Jun-2016 19:56:23 UTC] PHP Fatal error:  Cannot use object of type WC_Shipping_Rate as array in /home/butlerbranding/public_html/alist/wp-content/themes/enfold/functions-enfold.php on line 2108
+[28-Jun-2016 17:07:54 UTC] PHP Warning:  An unexpected error occurred. Something may be wrong with WordPress.org or this server&#8217;s configuration. If you continue to have problems, please try the <a href="https://wordpress.org/support/">support forums</a>. (WordPress could not establish a secure connection to WordPress.org. Please contact your server administrator.) in /home/butlerbranding/public_html/alist/wp-includes/update.php on line 306
+[15-Aug-2016 17:36:02 UTC] WordPress database error Duplicate key name 'location_type_code' for query ALTER TABLE wp_woocommerce_tax_rate_locations ADD KEY location_type_code (location_type(40),location_code(90)) made by require_once('wp-admin/admin.php'), require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('init'), call_user_func_array, WC_Install::check_version, WC_Install::install, WC_Install::create_tables, dbDelta
+[15-Aug-2016 17:36:02 UTC] WordPress database error Duplicate key name 'location_type_code' for query ALTER TABLE wp_woocommerce_shipping_zone_locations ADD KEY location_type_code (location_type(40),location_code(90)) made by require_once('wp-admin/admin.php'), require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('init'), call_user_func_array, WC_Install::check_version, WC_Install::install, WC_Install::create_tables, dbDelta
+[15-Aug-2016 17:36:02 UTC] WordPress database error Duplicate key name 'meta_key' for query ALTER TABLE wp_woocommerce_payment_tokenmeta ADD KEY meta_key (meta_key(191)) made by require_once('wp-admin/admin.php'), require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('init'), call_user_func_array, WC_Install::check_version, WC_Install::install, WC_Install::create_tables, dbDelta
+[15-Aug-2016 18:09:40 UTC] PHP Fatal error:  Call to undefined function avia_prepare_dynamic_styles() in /home/butlerbranding/public_html/alist/wp-content/themes/enfold/functions.php on line 446
+[13-Dec-2016 04:47:21 UTC] WordPress database error Duplicate key name 'location_type_code' for query ALTER TABLE wp_woocommerce_tax_rate_locations ADD KEY `location_type_code` (`location_type`(40),`location_code`(90)) made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('init'), WP_Hook->do_action, WP_Hook->apply_filters, call_user_func_array, WC_Install::check_version, WC_Install::install, WC_Install::create_tables, dbDelta
+[13-Dec-2016 04:47:21 UTC] WordPress database error Duplicate key name 'location_type_code' for query ALTER TABLE wp_woocommerce_shipping_zone_locations ADD KEY `location_type_code` (`location_type`(40),`location_code`(90)) made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('init'), WP_Hook->do_action, WP_Hook->apply_filters, call_user_func_array, WC_Install::check_version, WC_Install::install, WC_Install::create_tables, dbDelta
+[13-Dec-2016 04:47:21 UTC] WordPress database error Duplicate key name 'meta_key' for query ALTER TABLE wp_woocommerce_payment_tokenmeta ADD KEY `meta_key` (`meta_key`(191)) made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('init'), WP_Hook->do_action, WP_Hook->apply_filters, call_user_func_array, WC_Install::check_version, WC_Install::install, WC_Install::create_tables, dbDelta
+[14-Dec-2016 03:15:13 UTC] PHP Warning:  Missing argument 1 for Alg_Woocommerce_More_Sorting::handle_deprecated_options(), called in /home/alistbanners/public_html/alistbanners.com/wp-content/plugins/woocommerce-more-sorting/woocommerce-more-sorting.php on line 139 and defined in /home/alistbanners/public_html/alistbanners.com/wp-content/plugins/woocommerce-more-sorting/woocommerce-more-sorting.php on line 152
+[22-Dec-2016 18:17:27 UTC] PHP Fatal error:  Call to undefined function cmb2_get_metabox() in /home/alistbanners/public_html/alistbanners.com/wp-content/themes/alist/framework/thirdparty/cmb2-taxonomy/includes/CMB2_Taxonomy.php on line 137
+[22-Dec-2016 18:18:08 UTC] PHP Fatal error:  Call to undefined function cmb2_get_metabox() in /home/alistbanners/public_html/alistbanners.com/wp-content/themes/alist/framework/thirdparty/cmb2-taxonomy/includes/CMB2_Taxonomy.php on line 137
+[22-Dec-2016 18:22:24 UTC] PHP Fatal error:  Call to undefined function cmb2_get_metabox() in /home/alistbanners/public_html/alistbanners.com/wp-content/themes/alist/framework/thirdparty/cmb2-taxonomy/includes/CMB2_Taxonomy.php on line 137
+[22-Dec-2016 18:23:09 UTC] PHP Fatal error:  Call to undefined function cmb2_get_metabox() in /home/alistbanners/public_html/alistbanners.com/wp-content/themes/alist/framework/thirdparty/cmb2-taxonomy/includes/CMB2_Taxonomy.php on line 137
+[22-Dec-2016 18:24:18 UTC] PHP Fatal error:  Call to undefined function cmb2_get_metabox() in /home/alistbanners/public_html/alistbanners.com/wp-content/themes/alist/framework/thirdparty/cmb2-taxonomy/includes/CMB2_Taxonomy.php on line 137
+[22-Dec-2016 18:27:49 UTC] PHP Fatal error:  Call to undefined function cmb2_get_metabox() in /home/alistbanners/public_html/alistbanners.com/wp-content/themes/alist/framework/thirdparty/cmb2-taxonomy/includes/CMB2_Taxonomy.php on line 137
+[22-Dec-2016 18:29:26 UTC] PHP Fatal error:  Call to undefined function cmb2_get_metabox() in /home/alistbanners/public_html/alistbanners.com/wp-content/themes/alist/framework/thirdparty/cmb2-taxonomy/includes/CMB2_Taxonomy.php on line 137
+[22-Dec-2016 18:46:41 UTC] PHP Fatal error:  Call to undefined function cmb2_get_metabox() in /home/alistbanners/public_html/alistbanners.com/wp-content/themes/alist/framework/thirdparty/cmb2-taxonomy/includes/CMB2_Taxonomy.php on line 137
+[22-Dec-2016 18:48:14 UTC] PHP Fatal error:  Call to undefined function cmb2_get_metabox() in /home/alistbanners/public_html/alistbanners.com/wp-content/themes/alist/framework/thirdparty/cmb2-taxonomy/includes/CMB2_Taxonomy.php on line 137
+[22-Dec-2016 18:54:15 UTC] PHP Fatal error:  Call to undefined function cmb2_get_metabox() in /home/alistbanners/public_html/alistbanners.com/wp-content/themes/alist/framework/thirdparty/cmb2-taxonomy/includes/CMB2_Taxonomy.php on line 137
+[22-Dec-2016 18:54:38 UTC] PHP Fatal error:  Call to undefined function cmb2_get_metabox() in /home/alistbanners/public_html/alistbanners.com/wp-content/themes/alist/framework/thirdparty/cmb2-taxonomy/includes/CMB2_Taxonomy.php on line 137
+[22-Dec-2016 18:57:37 UTC] PHP Fatal error:  Call to undefined function cmb2_get_metabox() in /home/alistbanners/public_html/alistbanners.com/wp-content/themes/alist/framework/thirdparty/cmb2-taxonomy/includes/CMB2_Taxonomy.php on line 137
+[22-Dec-2016 18:58:00 UTC] PHP Fatal error:  Call to undefined function cmb2_get_metabox() in /home/alistbanners/public_html/alistbanners.com/wp-content/themes/alist/framework/thirdparty/cmb2-taxonomy/includes/CMB2_Taxonomy.php on line 137
+[22-Dec-2016 18:58:13 UTC] PHP Fatal error:  Call to undefined function cmb2_get_metabox() in /home/alistbanners/public_html/alistbanners.com/wp-content/themes/alist/framework/thirdparty/cmb2-taxonomy/includes/CMB2_Taxonomy.php on line 137
+[22-Dec-2016 19:35:57 UTC] PHP Fatal error:  Call to undefined function cmb2_get_metabox() in /home/alistbanners/public_html/alistbanners.com/wp-content/themes/alist/framework/thirdparty/cmb2-taxonomy/includes/CMB2_Taxonomy.php on line 137
+[22-Dec-2016 19:37:13 UTC] PHP Fatal error:  Call to undefined function cmb2_get_metabox() in /home/alistbanners/public_html/alistbanners.com/wp-content/themes/alist/framework/thirdparty/cmb2-taxonomy/includes/CMB2_Taxonomy.php on line 137
+[22-Dec-2016 19:47:34 UTC] PHP Fatal error:  Call to undefined function cmb2_get_metabox() in /home/alistbanners/public_html/alistbanners.com/wp-content/themes/alist/framework/thirdparty/cmb2-taxonomy/includes/CMB2_Taxonomy.php on line 137
+[22-Dec-2016 19:54:18 UTC] PHP Fatal error:  Call to undefined function cmb2_get_metabox() in /home/alistbanners/public_html/alistbanners.com/wp-content/themes/alist/framework/thirdparty/cmb2-taxonomy/includes/CMB2_Taxonomy.php on line 137
+[22-Dec-2016 19:57:59 UTC] PHP Warning:  implode(): Invalid arguments passed in /home/alistbanners/public_html/alistbanners.com/wp-content/plugins/wp-super-cache/wp-cache.php on line 3088
+[22-Dec-2016 19:57:59 UTC] PHP Warning:  implode(): Invalid arguments passed in /home/alistbanners/public_html/alistbanners.com/wp-content/plugins/wp-super-cache/wp-cache.php on line 3090
+[22-Dec-2016 19:58:44 UTC] PHP Fatal error:  Call to undefined function cmb2_get_metabox() in /home/alistbanners/public_html/alistbanners.com/wp-content/themes/alist/framework/thirdparty/cmb2-taxonomy/includes/CMB2_Taxonomy.php on line 137
+[22-Dec-2016 21:05:32 UTC] PHP Fatal error:  Call to undefined function cmb2_get_metabox() in /home/alistbanners/public_html/alistbanners.com/wp-content/themes/alist/framework/thirdparty/cmb2-taxonomy/includes/CMB2_Taxonomy.php on line 137
+[28-Dec-2016 19:40:06 UTC] PHP Fatal error:  Call to undefined function cmb2_get_metabox() in /home/alistbanners/public_html/alistbanners.com/wp-content/themes/alist/framework/thirdparty/cmb2-taxonomy/includes/CMB2_Taxonomy.php on line 137
+[28-Dec-2016 20:51:08 UTC] PHP Fatal error:  Call to undefined function cmb2_get_metabox() in /home/alistbanners/public_html/alistbanners.com/wp-content/themes/alist/framework/thirdparty/cmb2-taxonomy/includes/CMB2_Taxonomy.php on line 137
+[28-Dec-2016 20:56:36 UTC] PHP Fatal error:  Call to undefined function cmb2_get_metabox() in /home/alistbanners/public_html/alistbanners.com/wp-content/themes/alist/framework/thirdparty/cmb2-taxonomy/includes/CMB2_Taxonomy.php on line 137
+[12-Jan-2017 21:56:49 UTC] [CloudFlare] ERROR: [CLIENT API] Array
+(
+    [type] => request
+    [method] => GET
+    [path] => user/
+    [headers] => Array
+        (
+            [X-Auth-Key] => Jtalist17
+            [X-Auth-Email] => jesus@alistbanners.com
+            [Content-Type] => application/json
+        )
+
+    [params] => Array
+        (
+        )
+
+    [body] => Array
+        (
+            [cfCSRFToken] => 
+        )
+
+)
+ 
+[12-Jan-2017 21:56:49 UTC] [CloudFlare] ERROR: [CLIENT API] Array
+(
+    [type] => response
+    [reason] => Bad Request
+    [code] => 400
+    [body] => Invalid request headers
+    [stacktrace] => #0 /home/alistbanners/public_html/alistbanners.com/wp-content/plugins/cloudflare/vendor/guzzle/guzzle/src/Guzzle/Http/Message/Request.php(145): Guzzle\Http\Exception\BadResponseException::factory(Object(Guzzle\Http\Message\Request), Object(Guzzle\Http\Message\Response))
+#1 [internal function]: Guzzle\Http\Message\Request::onRequestError(Object(Guzzle\Common\Event), 'request.error', Object(Symfony\Component\EventDispatcher\EventDispatcher))
+#2 /home/alistbanners/public_html/alistbanners.com/wp-content/plugins/cloudflare/vendor/symfony/event-dispatcher/EventDispatcher.php(184): call_user_func(Array, Object(Guzzle\Common\Event), 'request.error', Object(Symfony\Component\EventDispatcher\EventDispatcher))
+#3 /home/alistbanners/public_html/alistbanners.com/wp-content/plugins/cloudflare/vendor/symfony/event-dispatcher/EventDispatcher.php(46): Symfony\Component\EventDispatcher\EventDispatcher->doDispatch(Array, 'request.error', Object(Guzzle\Common\Event))
+#4 /home/alistbanners/public_html/alistbanners.com/wp-content/plugins/cloudflare/vendor/guzzle/guzzle/src/Guzzle/Http/Message/Request.php(589): Symfony\Component\EventDispatcher\EventDispatcher->dispatch('request.error', Object(Guzzle\Common\Event))
+#5 /home/alistbanners/public_html/alistbanners.com/wp-content/plugins/cloudflare/vendor/guzzle/guzzle/src/Guzzle/Http/Message/Request.php(378): Guzzle\Http\Message\Request->processResponse(Array)
+#6 /home/alistbanners/public_html/alistbanners.com/wp-content/plugins/cloudflare/vendor/guzzle/guzzle/src/Guzzle/Http/Curl/CurlMulti.php(303): Guzzle\Http\Message\Request->setState('complete', Array)
+#7 /home/alistbanners/public_html/alistbanners.com/wp-content/plugins/cloudflare/vendor/guzzle/guzzle/src/Guzzle/Http/Curl/CurlMulti.php(257): Guzzle\Http\Curl\CurlMulti->processResponse(Object(Guzzle\Http\Message\Request), Object(Guzzle\Http\Curl\CurlHandle), Array)
+#8 /home/alistbanners/public_html/alistbanners.com/wp-content/plugins/cloudflare/vendor/guzzle/guzzle/src/Guzzle/Http/Curl/CurlMulti.php(240): Guzzle\Http\Curl\CurlMulti->processMessages()
+#9 /home/alistbanners/public_html/alistbanners.com/wp-content/plugins/cloudflare/vendor/guzzle/guzzle/src/Guzzle/Http/Curl/CurlMulti.php(224): Guzzle\Http\Curl\CurlMulti->executeHandles()
+#10 /home/alistbanners/public_html/alistbanners.com/wp-content/plugins/cloudflare/vendor/guzzle/guzzle/src/Guzzle/Http/Curl/CurlMulti.php(111): Guzzle\Http\Curl\CurlMulti->perform()
+#11 /home/alistbanners/public_html/alistbanners.com/wp-content/plugins/cloudflare/vendor/guzzle/guzzle/src/Guzzle/Http/Curl/CurlMultiProxy.php(94): Guzzle\Http\Curl\CurlMulti->send()
+#12 /home/alistbanners/public_html/alistbanners.com/wp-content/plugins/cloudflare/vendor/guzzle/guzzle/src/Guzzle/Http/Client.php(284): Guzzle\Http\Curl\CurlMultiProxy->send()
+#13 /home/alistbanners/public_html/alistbanners.com/wp-content/plugins/cloudflare/vendor/cloudflare/cloudflare-plugin-backend/src/API/AbstractAPIClient.php(79): Guzzle\Http\Client->send(Object(Guzzle\Http\Message\Request))
+#14 /home/alistbanners/public_html/alistbanners.com/wp-content/plugins/cloudflare/vendor/cloudflare/cloudflare-plugin-backend/src/API/AbstractPluginActions.php(94): CF\API\AbstractAPIClient->callAPI(Object(CF\API\Request))
+#15 /home/alistbanners/public_html/alistbanners.com/wp-content/plugins/cloudflare/vendor/cloudflare/cloudflare-plugin-backend/src/Router/DefaultRestAPIRouter.php(62): CF\API\AbstractPluginActions->login()
+#16 /home/alistbanners/public_html/alistbanners.com/wp-content/plugins/cloudflare/vendor/cloudflare/cloudflare-plugin-backend/src/Router/RequestRouter.php(59): CF\Router\DefaultRestAPIRouter->route(Object(CF\API\Request))
+#17 /home/alistbanners/public_html/alistbanners.com/wp-content/plugins/cloudflare/src/WordPress/Proxy.php(62): CF\Router\RequestRouter->route(Object(CF\API\Request))
+#18 /home/alistbanners/public_html/alistbanners.com/wp-content/plugins/cloudflare/src/WordPress/Hooks.php(95): CF\WordPress\Proxy->run()
+#19 [internal function]: CF\WordPress\Hooks->initProxy('')
+#20 /home/alistbanners/public_html/alistbanners.com/wp-includes/class-wp-hook.php(298): call_user_func_array(Array, Array)
+#21 /home/alistbanners/public_html/alistbanners.com/wp-includes/class-wp-hook.php(323): WP_Hook->apply_filters('', Array)
+#22 /home/alistbanners/public_html/alistbanners.com/wp-includes/plugin.php(453): WP_Hook->do_action(Array)
+#23 /home/alistbanners/public_html/alistbanners.com/wp-admin/admin-ajax.php(91): do_action('wp_ajax_cloudfl...')
+#24 {main}
+)
+ 
+[12-Jan-2017 21:56:49 UTC] [CloudFlare] ERROR: Invalid request headers 
+[12-Jan-2017 21:56:49 UTC] [CloudFlare] ERROR: Email address or API key invalid. 
+[13-Jan-2017 02:27:21 UTC] PHP Warning:  Missing argument 3 for ReduxFramework::_validate_values(), called in /home/alistbanners/public_html/alistbanners.com/wp-content/plugins/redux-framework/ReduxCore/framework.php on line 2960 and defined in /home/alistbanners/public_html/alistbanners.com/wp-content/plugins/redux-framework/ReduxCore/framework.php on line 2938
+[13-Jan-2017 02:27:21 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/alistbanners/public_html/alistbanners.com/wp-content/plugins/redux-framework/ReduxCore/framework.php on line 2939
+[13-Jan-2017 02:27:38 UTC] PHP Warning:  Missing argument 3 for ReduxFramework::_validate_values(), called in /home/alistbanners/public_html/alistbanners.com/wp-content/plugins/redux-framework/ReduxCore/framework.php on line 2960 and defined in /home/alistbanners/public_html/alistbanners.com/wp-content/plugins/redux-framework/ReduxCore/framework.php on line 2938
+[13-Jan-2017 02:27:38 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/alistbanners/public_html/alistbanners.com/wp-content/plugins/redux-framework/ReduxCore/framework.php on line 2939
+[13-Jan-2017 02:27:53 UTC] PHP Warning:  Missing argument 3 for ReduxFramework::_validate_values(), called in /home/alistbanners/public_html/alistbanners.com/wp-content/plugins/redux-framework/ReduxCore/framework.php on line 2960 and defined in /home/alistbanners/public_html/alistbanners.com/wp-content/plugins/redux-framework/ReduxCore/framework.php on line 2938
+[13-Jan-2017 02:27:53 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/alistbanners/public_html/alistbanners.com/wp-content/plugins/redux-framework/ReduxCore/framework.php on line 2939
+[13-Jan-2017 02:28:09 UTC] PHP Warning:  Missing argument 3 for ReduxFramework::_validate_values(), called in /home/alistbanners/public_html/alistbanners.com/wp-content/plugins/redux-framework/ReduxCore/framework.php on line 2960 and defined in /home/alistbanners/public_html/alistbanners.com/wp-content/plugins/redux-framework/ReduxCore/framework.php on line 2938
+[13-Jan-2017 02:28:09 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/alistbanners/public_html/alistbanners.com/wp-content/plugins/redux-framework/ReduxCore/framework.php on line 2939
+[23-Jan-2017 18:18:32 UTC] PHP Fatal error:  Call to undefined function cmb2_get_metabox() in /home/alistbanners/public_html/alistbanners.com/wp-content/themes/alist/framework/thirdparty/cmb2-taxonomy/includes/CMB2_Taxonomy.php on line 137
+[23-Jan-2017 18:26:05 UTC] PHP Fatal error:  Call to undefined function cmb2_get_metabox() in /home/alistbanners/public_html/alistbanners.com/wp-content/themes/alist/framework/thirdparty/cmb2-taxonomy/includes/CMB2_Taxonomy.php on line 137
